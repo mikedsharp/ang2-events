@@ -1,0 +1,24 @@
+<div class="todo-items">
+    <ul>
+            <li class="todo-item"
+                *ngFor="let item of items">{{item}}</li>
+    </ul>
+</div>
+
+<div class="todo-input-section">
+    <input 
+        #newitem 
+        type="text"
+        (keyup.escape)="newitem.value = '';$event.target.blur()" 
+        (keyup.enter)="addItem(newitem.value);newitem.value = ''"
+        (keyup)="0"
+        /><button type="button" (click)="addItem(newitem.value);newitem.value = ''">Add</button>
+</div>
+
+<div class="input-preview">
+   <item-preview [itemModel]="newitem.value"></item-preview>
+</div>
+
+<div class="todo-save-actions">
+    <save-options [listModel]="items" (listUpdated)="listUpdated($event)" ></save-options>
+</div>
