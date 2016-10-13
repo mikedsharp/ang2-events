@@ -14,11 +14,5 @@
         (keyup)="0"
         /><button type="button" (click)="addItem(newitem.value);newitem.value = ''">Add</button>
 </div>
-
-<div class="input-preview">
-   <item-preview [itemModel]="newitem.value"></item-preview>
-</div>
-
-<div class="todo-save-actions">
-    <save-options [listModel]="items" (listUpdated)="listUpdated($event)" ></save-options>
-</div>
+<item-preview [itemModel]="newitem.value"></item-preview>
+<save-options [listModel]="items" (listUpdated)="listUpdated($event)" ></save-options>
